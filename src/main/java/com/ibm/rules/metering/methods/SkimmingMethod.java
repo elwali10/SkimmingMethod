@@ -18,7 +18,7 @@ public class SkimmingMethod {
 	private static int headerSize = 16;
 	private static int referenceSize = 8;
 
-	public static long Method4_skimmingFields(Object o)
+	public static long skimmingFields_Method(Object o)
 			throws IllegalArgumentException, IllegalAccessException {
 
 		if (o == null) {
@@ -57,7 +57,7 @@ public class SkimmingMethod {
 			} else {
 				Object[] objs = (Object[]) o;
 				for (Object obj : objs) {
-					countSize += Method4_skimmingFields(obj) + referenceSize;
+					countSize += skimmingFields_Method(obj) + referenceSize;
 				}
 			}
 
@@ -95,7 +95,7 @@ public class SkimmingMethod {
 				} else if (fieldType.equals("double")) {
 					countSize += DOUBLE_SIZE;
 				} else {
-					countSize += Method4_skimmingFields(field.get(o))
+					countSize += skimmingFields_Method(field.get(o))
 							+ referenceSize;
 				}
 			}
